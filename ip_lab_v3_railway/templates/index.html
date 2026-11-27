@@ -1,6 +1,15 @@
-
 {% extends "base.html" %}
 {% block content %}
 <section class="card">
+  <h1>W IP</h1>
+    <strong>What happens if you agree?</strong>
+
+    
+  </div>
+  <form method="post" action="{{ url_for('consent') }}">
+    <input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+    
+  </form>
 </section>
+
 {% endblock %}
