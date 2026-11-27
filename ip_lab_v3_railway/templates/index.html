@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="card">
+  <h1>Public IP Lab</h1>
+  <p>This is a cybersecurity training page used to demonstrate what information a web server can receive during a visit.</p>
+  <div class="notice">
+    <strong>What happens if you agree?</strong>
+    <ul>
+      <li>Your public IP address will be recorded.</li>
+      <li>The time of the test will be recorded in UTC.</li>
+      <li>The record will be visible to the lab administrator.</li>
+      <li>Records are automatically deleted after the configured retention period (default: 30 days).</li>
+    </ul>
+    <p>This application does not save your IP address in its lab database unless you actively select the consent option and submit it. The hosting provider may separately process connection metadata to operate and secure the website.</p>
+  </div>
+  <form method="post" action="{{ url_for('consent') }}">
+    <input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+    <label><input type="checkbox" name="consent" value="yes" required>
+      I understand and voluntarily consent to recording my public IP address and visit timestamp for this cybersecurity lab.
+    </label>
+    <button class="button" type="submit">I CONSENT — RECORD TEST VISIT</button>
+  </form>
+</section>
+<p class="muted">If you do not agree, simply leave this page. No test visit record will be created.</p>
+{% endblock %}
