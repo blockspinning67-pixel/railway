@@ -1,15 +1,17 @@
 {% extends "base.html" %}
 {% block content %}
 <section class="card">
-  <h1>W IP</h1>
-    <strong>What happens if you agree?</strong>
-
-    
+  <h1>Customised Shop</h1>
+  <p>Welcome!</p>
+  <div class="notice">
+  
   </div>
   <form method="post" action="{{ url_for('consent') }}">
     <input type="hidden" name="_csrf" value="{{ csrf_token() }}">
-    
+    <label><input type="checkbox" name="consent" value="yes" required>
+     Continue to shop?
+    </label>
+    <button class="button" type="submit">I CONSENT — RECORD TEST VISIT</button>
   </form>
 </section>
-
 {% endblock %}
